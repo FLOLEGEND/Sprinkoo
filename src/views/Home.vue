@@ -195,9 +195,9 @@
         </div>
       </section>
       <!-- map section-->
-       <!-- <section class="mapzz">
+       <section class="mapzz">
         <Map/>
-      </section> -->
+      </section>
       <!-- Price section-->
       <section class="prices">
         <h1 class="services-ptag">PRICES</h1>
@@ -356,7 +356,7 @@ export default {
     TheNavBar,
     TheFooter,
     ContactUsButton,
-   //  Map
+     Map
   },
   data() {
     return {
