@@ -4,7 +4,7 @@
       <section class="starting">
         <b-navbar-brand class="logo-style">
           <img
-            src="../assets/images/logo.png"
+            src="../assets/images/profile.png"
             class="d-inline-block align-top img-style"
             alt="Logo-picture"
           />

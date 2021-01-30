@@ -8,10 +8,10 @@
       <select class="selector-class" name="cars" id="cars" v-model="userSelection" required>
         <option value="">None</option>
         <option value="Exterior Wash RS:(300)">Exterior Wash RS:(300)</option>
-        <option value="Interior Wash RS:(600)">Interior Wash RS:(600)</option>
+        <option value="Interior Wash RS:(350)">Interior Wash RS:(600)</option>
         <option value="Exterior and polish RS:(400)">Exterior and polish RS:(400)</option>
-        <option value="Car Service RS:(dynamic)">Car Service RS:(dynamic)</option>
-        <option value="Car Checkup RS:(dynamic)">Car Checkup RS:(dynamic)</option>
+        <option value="Interior and Exterior RS:(600)">Interior and Exterior</option>
+        <option value="Car Checkup RS:(dynamic)">Car Service RS:(dynamic)</option>
         <option value="Complete wash RS:(2500)">Complete wash RS:(2500)</option>
       </select>
       <Buttonz class="Order-button" :onClick="insertOrderIntoFirebase" type="submit">Order Now</Buttonz>

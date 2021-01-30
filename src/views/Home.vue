@@ -67,16 +67,16 @@
         <div class="section1-div2">
           <ul style="width: 80%; margin: auto" class="holder">
             <li class="li1">
-              <img class="img1" src="../assets/images/repair.jpg" />
+              <img class="img1" src="../assets/images/ss.jpg" />
               <div class="info">
-                <p><b>Car Servicing</b></p>
+                <p><b>Interior Wash</b></p>
                 <div @click="gotomap()" class="button"></div>
               </div>
             </li>
             <li class="li1">
               <img
                 class="img1"
-                src="../assets/images/ss.jpg"
+                src="../assets/images/IE.jpg"
                 alt="Logan Movie Poster"
               />
               <div class="info">
@@ -91,7 +91,7 @@
                 alt="Logan Movie Poster"
               />
               <div class="info">
-                <p><b>Car Checkup</b></p>
+                <p><b>Car Servicing</b></p>
                 <div @click="gotomap()" class="button"></div>
               </div>
             </li>
@@ -195,9 +195,9 @@
         </div>
       </section>
       <!-- map section-->
-       <section class="mapzz">
+       <!-- <section class="mapzz">
         <Map/>
-      </section>
+      </section> -->
       <!-- Price section-->
       <section class="prices">
         <h1 class="services-ptag">PRICES</h1>
@@ -222,8 +222,8 @@
             <h4 class="price-section-inner">600</h4>
           </div>
           <div class="prices-inner-div2">
-            <h5 class="content-section">Car Checkup</h5>
-            <h4 class="price-section-inner">Dynamic</h4>
+            <h5 class="content-section">Interior Wash</h5>
+            <h4 class="price-section-inner">350</h4>
           </div>
         </div>
         <div class="section-prices-div2">
@@ -356,7 +356,7 @@ export default {
     TheNavBar,
     TheFooter,
     ContactUsButton,
-     Map
+   //  Map
   },
   data() {
     return {
