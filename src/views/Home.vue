@@ -98,8 +98,52 @@
           </ul>
         </div>
       </section>
+      <!-- Subscription model -->
+      <section class="purchase" id="buy-now">
+        <h1 class="services-ptag" style="font-size:50px;"><b>SUBSCRIPTION PRICING</b></h1>
+        <p style="padding-bottom: 2rem; font-size: 20px">
+          Our subscribers will be provided with coupon which they can use to
+          <br />
+          get free services according to their subscription.
+        </p>
+        <div class="container-div-subscription">
+          <ul>
+            <li>
+              <a @click="Sub()">
+                <strong>Silver</strong>
+                <span class="purchase-description">5 Exterior wash </span>
+                <span class="purchase-description">Plus Polishing Free</span>
+
+                <big class="purchase-price">1499</big>
+                <span class="purchase-button">Buy Now</span>
+              </a>
+            </li>
+
+            <li>
+              <a @click="Sub()">
+                <strong>Gold</strong>
+                <span class="purchase-description">5 Exterior wash</span>
+                <span class="purchase-description">5 Interior Wash</span>
+                <big class="purchase-price">2499</big>
+                <span class="purchase-button">Buy Now</span>
+              </a>
+            </li>
+
+            <li>
+              <a style="cursor:" @click="Sub()">
+                <strong>Platinum</strong>
+                <span class="purchase-description">5 Exterior with Polishing</span>
+                <span class="purchase-description">5 Interior wash</span>
+                <big class="purchase-price">2999</big>
+                <span class="purchase-button">Buy Now</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
       <!--About section-->
-      <section id="testimonial" class="testimonials">
+      <!-- <section id="testimonial" class="testimonials">
         <div class="inner">
           <h1>Testimonials</h1>
           <div class="border"></div>
@@ -164,9 +208,10 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
+
       <!-- Happy customers-->
-      <section class="Happy-Customers">
+      <!-- <section class="Happy-Customers">
         <div class="container counter-section">
           <div class="row text-center items-align">
             <div class="col-md-3">
@@ -193,12 +238,8 @@
             </div>
           </div>
         </div>
-      </section>
-      <!-- map section-->
-       <section class="mapzz">
-        <Map/>
-      </section>
-      <!-- Price section-->
+      </section> -->
+<!-- Price section-->
       <section class="prices">
         <h1 class="services-ptag">PRICES</h1>
         <p style="padding-bottom: 2rem; font-size: 20px">
@@ -237,6 +278,13 @@
           </div>
         </div>
       </section>
+      <!-- map section-->
+      <section class="mapzz">
+        <Map/>
+      </section>
+
+
+
       <!-- Contact US -->
       <section class="contact-us">
         <h1 class="services-ptag" style="color: white">Contact Us</h1>
@@ -283,11 +331,14 @@
               </form>
             </div>
             <div class="contactus-div2-inner-div2">
-              <ContactUsButton :onClick="sendMessage">Send Message</ContactUsButton>
+              <ContactUsButton :onClick="sendMessage"
+                >Send Message</ContactUsButton
+              >
             </div>
           </div>
         </div>
       </section>
+
       <!--Our team Section-->
       <!-- <section class="gallery" style="background: #81c644">
         <div class="wrapper">
@@ -348,9 +399,9 @@
 <script>
 import TheNavBar from "../components/TheNavBar.vue";
 import TheFooter from "@/components/TheFooter";
-import ContactUsButton from '@/components/ContactUsButton'
+import ContactUsButton from "@/components/ContactUsButton";
 import Map from "../components/Map.vue";
-import { orderPlacedRef } from "../firebase";
+import { orderPlacedRef,subscription,firebaseAuth } from "../firebase";
 export default {
   components: {
     TheNavBar,
@@ -431,6 +482,20 @@ export default {
     // });
   },
   methods: {
+    Sub(){
+       firebaseAuth().onAuthStateChanged( (user)=> {
+         let vm=this
+        if (user) {
+          var userPhoneNumberIs=user.phoneNumber
+          var nameOfUserIs=this.$store.state.username
+          vm.$store.commit('setSubscription',{userPhoneNumberIs,nameOfUserIs})
+          subscription.doc(userPhoneNumberIs).set(this.$store.state.subscription)
+          alert("Thanks For The Sub. We will provide you with coupons within few hours!!")
+        } else {
+          alert("Sign in to Subscribe")
+        }
+      });
+    },
     userExp(input) {
       this[input].isValid = true;
     },
@@ -483,9 +548,194 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// Subscription model
+a {
+  text-decoration: none;
+  cursor:pointer;
+}
+.container-div-subscription{
+  margin-bottom: 10rem;
+}
+.purchase {
+  border-top: 0px;
+  padding: 89px 0 0;
+  text-align: center;
+  font-family: "Lato";
+}
+.purchase h1 {
+  font-size: 26px;
+  letter-spacing: 3px;
+  line-height: 40px;
+  text-transform: uppercase;
+}
+.purchase p {
+  font-size: 26px;
+  line-height: 45px;
+  max-width: 750px;
+  margin: 0 auto;
+}
+.purchase-trigger {
+  margin-top: 50px;
+  border: 1px solid #e85700;
+  border-radius: 50px;
+  font-size: 26px;
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+}
+
+.purchase-trigger * {
+  -webkit-transition: 0.3s cubic-bezier(0.54, 1.41, 0.54, 0.87);
+  -moz-transition: 0.3s cubic-bezier(0.54, 1.41, 0.54, 0.87);
+  -o-transition: 0.3s cubic-bezier(0.54, 1.41, 0.54, 0.87);
+  transition: 0.3s cubic-bezier(0.54, 1.41, 0.54, 0.87);
+
+  -webkit-transition: 0.4s cubic-bezier(0.165, 0.925, 0.51, 1.005);
+  -moz-transition: 0.4s cubic-bezier(0.165, 0.925, 0.51, 1.005);
+  -o-transition: 0.4s cubic-bezier(0.165, 0.925, 0.51, 1.005);
+  transition: 0.4s cubic-bezier(0.165, 0.925, 0.51, 1.005);
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.purchase-trigger span {
+  padding: 17px 80px;
+  color: #e85700;
+  width: 246px;
+  display: inline-block;
+}
+.purchase-trigger .bubble {
+  position: absolute;
+  background: #e85700;
+  top: 0;
+  border-radius: 50px;
+  left: 0;
+  height: 74px;
+  width: 246px;
+  z-index: -1;
+}
+.purchase-trigger.right .bubble {
+  margin-left: 246px;
+}
+
+.purchase-trigger:not(.right) .annual {
+  color: #fff;
+}
+.purchase-trigger.right .monthly {
+  color: #fff;
+}
+
+.purchase ul {
+  display: table;
+  margin: 70px auto 0;
+  width: 100%;
+  max-width: 1100px;
+}
+.purchase li {
+  display: table-cell;
+  width: 33.333%;
+  padding: 43px 0 0;
+  -webkit-transition: 0;
+  -webkit-transition: all 0.25s, color 0s;
+  -moz-transition: all 0.25s, color 0s;
+  -o-transition: all 0.25s, color 0s;
+  transition: all 0.25s, color 0s;
+  position: relative;
+  z-index: 0;
+  border: 1px solid #bbb;
+}
+
+.purchase li:first-child {
+  position: relative;
+  right: -1px;
+}
+.purchase li:last-child {
+  position: relative;
+  left: -1px;
+}
+
+.purchase li:hover {
+  box-shadow: 0 13px 48px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  color: #fff;
+  background: #e85700;
+  border-color: #e85700;
+  -webkit-transform: scale(1.05);
+}
+
+.purchase li * {
+  -webkit-transition: 0 !important;
+  -moz-transition: 0 !important;
+  -o-transition: 0 !important;
+  transition: 0 !important;
+}
+
+.purchase li:hover * {
+  color: #fff !important;
+  border-color: rgba(255, 255, 255, 0.27) !important;
+}
+
+.purchase li strong {
+  font-size: 19px;
+  text-transform: uppercase;
+  color: #2f3740;
+  letter-spacing: 2.4px;
+  line-height: 45px;
+  font-weight: 400;
+  margin-bottom: 25px;
+  display: inline-block;
+}
+
+.purchase ul .purchase-description {
+  display: block;
+  font-size: 19px;
+  line-height: 30px;
+}
+
+.purchase .purchase-price {
+  font-size: 70px;
+  letter-spacing: 2px;
+  padding-top: 20px;
+  display: block;
+  font-weight: 400;
+  padding-bottom: 12px;
+}
+.purchase .purchase-button {
+  text-transform: uppercase;
+  font-size: 19px;
+  color: #2f3740;
+  text-decoration: none;
+  line-height: 1;
+  padding: 28px 0 24px;
+  border-top: 1px solid #bbb;
+  width: 100%;
+  display: inline-block;
+  margin-top: 6px;
+  display: block;
+}
+.purchase li:hover .purchase-button {
+  -webkit-transition: 0;
+  -moz-transition: 0;
+  -o-transition: 0;
+  transition: 0;
+}
+
+.purchase ul a:hover {
+  color: #e85700;
+}
+
+.purchase ul a,
+.purchase ul a:hover .purchase-price,
+.purchase ul a:hover .purchase-description {
+  color: #6c6c6c;
+}
+
 //prices section
 .prices {
-
   background: rgb(233, 223, 223);
   height: 800px;
 }
@@ -529,7 +779,7 @@ export default {
 //Happy Customers
 .Happy-Customers {
   background: black;
-  position:relative;
+  position: relative;
 }
 .items-align {
   padding-top: 15rem;

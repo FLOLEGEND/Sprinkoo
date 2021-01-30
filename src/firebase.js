@@ -15,6 +15,7 @@ require("firebase/auth");
   const db=firebase.firestore()
   export const dbMenuRef = db.collection("CarWash")
   export const orderPlacedRef = db.collection("CustomersComplaints")
+  export const subscription=db.collection("Subscriptions")
   export const firebaseAuth= firebase.auth
   export {db}
 

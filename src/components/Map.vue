@@ -2,9 +2,9 @@
   <div style="position: relative">
      <section class="typer">
        <form @submit.prevent="" class="typer">
-      <label for="Location">Location</label>
+      <label for="Location"><b>Pick your Location</b></label>
       <input class="input1" placeholder="Enter location" id="autocomplete" />
-      <label for="cars">Choose a Service:</label>
+      <label for="cars"><b>Choose a Service:</b></label>
       <select class="selector-class" name="cars" id="cars" v-model="userSelection" required>
         <option value="">None</option>
         <option value="Exterior Wash RS:(300)">Exterior Wash RS:(300)</option>

@@ -16,7 +16,7 @@
         </b-nav-item>
 
           <b-nav-item class="ml-auto mr-lg-3 mr-md-2">
-          <a @click="gototestimonial()" class="item-style">TESTIMONIAL</a>
+          <a @click="gotoSubscription()" class="item-style">SUBSCRIPTION</a>
         </b-nav-item>
 
         <b-nav-item class="ml-auto mr-lg-3 mr-md-2">
@@ -63,8 +63,8 @@ export default {
     var element_to_scroll_to = document.querySelectorAll('.gallery')[0];
       element_to_scroll_to.scrollIntoView({behavior: "smooth"});
     },
-    gototestimonial(){
-      var element_to_scroll_to = document.querySelectorAll('.testimonials')[0];
+    gotoSubscription(){
+      var element_to_scroll_to = document.querySelectorAll('.purchase')[0];
       element_to_scroll_to.scrollIntoView({behavior: "smooth"});
 
     },

@@ -8,9 +8,14 @@ export default new Vuex.Store({
     locationOfUser:'',
     username:'',
     order:[],
-    emailFromUser:[]
+    emailFromUser:[],
+    subscription:[]
   },
   mutations: {
+    setSubscription(state,payload){
+      state.subscription=[]
+      state.subscription=payload
+    },
     setOrder(state,payload){
       state.order=[]
         state.order=payload
