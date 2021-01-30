@@ -100,16 +100,18 @@
       </section>
       <!-- Subscription model -->
       <section class="purchase" id="buy-now">
-        <h1 class="services-ptag" style="font-size:50px;"><b>SUBSCRIPTION PRICING</b></h1>
+        <h1 class="services-ptag" style="font-size: 50px">
+          <b>SUBSCRIPTION PRICING</b>
+        </h1>
         <p style="padding-bottom: 2rem; font-size: 20px">
           Our subscribers will be provided with coupon which they can use to
           <br />
-          get free services according to their subscription.
+          get bonus services according to their subscription.
         </p>
         <div class="container-div-subscription">
           <ul>
             <li>
-              <a @click="Sub()">
+              <a class="a22" @click="Sub()">
                 <strong>Silver</strong>
                 <span class="purchase-description">5 Exterior wash </span>
                 <span class="purchase-description">Plus Polishing Free</span>
@@ -120,7 +122,7 @@
             </li>
 
             <li>
-              <a @click="Sub()">
+              <a class="a22" @click="Sub()">
                 <strong>Gold</strong>
                 <span class="purchase-description">5 Exterior wash</span>
                 <span class="purchase-description">5 Interior Wash</span>
@@ -130,9 +132,11 @@
             </li>
 
             <li>
-              <a style="cursor:" @click="Sub()">
+              <a class="a22" style="cursor: " @click="Sub()">
                 <strong>Platinum</strong>
-                <span class="purchase-description">5 Exterior with Polishing</span>
+                <span class="purchase-description"
+                  >5 Exterior with Polishing</span
+                >
                 <span class="purchase-description">5 Interior wash</span>
                 <big class="purchase-price">2999</big>
                 <span class="purchase-button">Buy Now</span>
@@ -239,7 +243,7 @@
           </div>
         </div>
       </section> -->
-<!-- Price section-->
+      <!-- Price section-->
       <section class="prices">
         <h1 class="services-ptag">PRICES</h1>
         <p style="padding-bottom: 2rem; font-size: 20px">
@@ -279,11 +283,20 @@
         </div>
       </section>
       <!-- map section-->
-      <section class="mapzz">
-        <Map/>
+        <section class="mapzz">
+        <Map />
       </section>
 
-
+        <!-- Alert Section-->
+      <div>
+        <transition name="slide" appear>
+          <div class="modals" v-if="showModal">
+            <h1 class="h11">{{ title }}</h1>
+            <p class="p11">{{ msg }}</p>
+            <button class="button22" @click="showModal = false">Okay</button>
+          </div>
+        </transition>
+      </div>
 
       <!-- Contact US -->
       <section class="contact-us">
@@ -401,16 +414,19 @@ import TheNavBar from "../components/TheNavBar.vue";
 import TheFooter from "@/components/TheFooter";
 import ContactUsButton from "@/components/ContactUsButton";
 import Map from "../components/Map.vue";
-import { orderPlacedRef,subscription,firebaseAuth } from "../firebase";
+import { orderPlacedRef, subscription, firebaseAuth } from "../firebase";
 export default {
   components: {
     TheNavBar,
     TheFooter,
     ContactUsButton,
-     Map
+    Map,
   },
   data() {
     return {
+      title: "",
+      msg: "",
+      showModal: false,
       nameOfUser: {
         val: "",
         isValid: true,
@@ -432,6 +448,7 @@ export default {
       threshold: 0,
       rootMargin: "-200px",
     };
+    // eslint-disable-next-line no-unused-vars
     const observer = new IntersectionObserver(function (entries, observer) {
       entries.some((entry) => {
         //
@@ -482,17 +499,27 @@ export default {
     // });
   },
   methods: {
-    Sub(){
-       firebaseAuth().onAuthStateChanged( (user)=> {
-         let vm=this
+    Sub() {
+      firebaseAuth().onAuthStateChanged((user) => {
+        let vm = this;
         if (user) {
-          var userPhoneNumberIs=user.phoneNumber
-          var nameOfUserIs=this.$store.state.username
-          vm.$store.commit('setSubscription',{userPhoneNumberIs,nameOfUserIs})
-          subscription.doc(userPhoneNumberIs).set(this.$store.state.subscription)
-          alert("Thanks For The Sub. We will provide you with coupons within few hours!!")
+          var userPhoneNumberIs = user.phoneNumber;
+          var nameOfUserIs = this.$store.state.username;
+          vm.$store.commit("setSubscription", {
+            userPhoneNumberIs,
+            nameOfUserIs,
+          });
+          subscription
+            .doc(userPhoneNumberIs)
+            .set(this.$store.state.subscription);
+          this.title = "Susbcribed!";
+          this.msg =
+            "Thanks for the sub.We will provide you with coupon within few hours."+"🍬"+"🍒";
+          this.showModal = true;
         } else {
-          alert("Sign in to Subscribe")
+          this.title = "No user found!!";
+          this.msg = "Please Sign In to Subscribe";
+          this.showModal = true;
         }
       });
     },
@@ -517,14 +544,19 @@ export default {
         !this.emailOfUser.isValid == true ||
         !this.messageOfUser.isValid === true
       ) {
-        alert("please fil the form");
+        this.title = "Empty form!";
+        this.msg = "Please Fill in the form";
+        this.showModal = true;
       } else {
         var name = this.nameOfUser.val;
         var email = this.emailOfUser.val;
         var message = this.messageOfUser.val;
         this.$store.commit("setEmailFromUser", { email, message });
         orderPlacedRef.doc(name).set(this.$store.getters.getEmailFromUser);
-        alert("message sent");
+        this.title = "Message sent";
+        this.msg =
+          "Thanks for reaching out to us. We will get in touch with you shortly";
+        this.showModal = true;
       }
     },
     gotomap() {
@@ -548,12 +580,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+//Alert Button
+
+
 // Subscription model
-a {
+.a22 {
   text-decoration: none;
-  cursor:pointer;
+  cursor: pointer;
 }
-.container-div-subscription{
+.container-div-subscription {
   margin-bottom: 10rem;
 }
 .purchase {

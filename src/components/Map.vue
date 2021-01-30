@@ -70,7 +70,9 @@ export default {
   methods: {
     insertOrderIntoFirebase() {
       if(this.userSelection==''){
-        alert("select service option")
+         this.title = "No Service Selected";
+          this.msg ="Please select one service to order";
+          this.showModal = true;
       }else{
        let vm=this
       firebaseAuth().onAuthStateChanged( (user)=> {
@@ -81,10 +83,14 @@ export default {
           var locationOfUserIs=this.$store.state.locationOfUser
           vm.$store.commit('setOrder',{userPhoneNumberIs,locationOfUserIs,nameOfUserIs,choice})
           dbMenuRef.doc(nameOfUserIs).set(this.$store.state.order)
-          alert("Order Submitted As: "+choice)
+          this.title="Order Submitted"
+            this.msg="Our team will be on your way soon"+"🍡", "🍩"
+            this.showModal=true
 
         } else {
-          alert("Sign in to Order")
+          this.title="No user found!!"
+            this.msg="Please Sign In to Order"
+            this.showModal=true
         }
       });
       }
@@ -101,7 +107,7 @@ export default {
           );
         },
         (error) => {
-          console.log("error", error.message);
+
         }
       );
     },
@@ -119,7 +125,7 @@ export default {
           this.$store.commit("setlocationOfUser", locationOfUser);
         })
         .catch((err) => {
-          console.log(err);
+
         });
     },
     showUser(latitude, longitude, addressOfUser) {

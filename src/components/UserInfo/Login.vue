@@ -116,7 +116,6 @@
           vm.$store.commit('usernameUpdate',username)
           vm.$router.replace('/')
         }).catch(function(error) {
-          console.log(error)
           let errMsg = error.message.toLowerCase()
           while(errMsg.indexOf('email') != -1){
             errMsg = errMsg.replace("email address", "phone number");

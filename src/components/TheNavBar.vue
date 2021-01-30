@@ -15,7 +15,7 @@
           <a @click="gotoservices()" class="item-style">SERVICES</a>
         </b-nav-item>
 
-          <b-nav-item class="ml-auto mr-lg-3 mr-md-2">
+        <b-nav-item class="ml-auto mr-lg-3 mr-md-2">
           <a @click="gotoSubscription()" class="item-style">SUBSCRIPTION</a>
         </b-nav-item>
 
@@ -42,54 +42,53 @@
 </template>
 
 <script>
-    // To change the navbar color on scroll
+// To change the navbar color on scroll
 // window.addEventListener("scroll", function () {
 //   var header = document.querySelector("header");
 //   header.classList.toggle("sticky", window.scrollY > 0);
 // });
 
-import {firebaseAuth} from '../firebase'
+import { firebaseAuth } from "../firebase";
 export default {
-    created(){
-     return this.check()
-   },
+  created() {
+    return this.check();
+  },
   data() {
     return {
       showLogin: true,
     };
   },
   methods: {
-    gotoabout(){
-    var element_to_scroll_to = document.querySelectorAll('.gallery')[0];
-      element_to_scroll_to.scrollIntoView({behavior: "smooth"});
+    gotoabout() {
+      var element_to_scroll_to = document.querySelectorAll(".gallery")[0];
+      element_to_scroll_to.scrollIntoView({ behavior: "smooth" });
     },
-    gotoSubscription(){
-      var element_to_scroll_to = document.querySelectorAll('.purchase')[0];
-      element_to_scroll_to.scrollIntoView({behavior: "smooth"});
+    gotoSubscription() {
+      var element_to_scroll_to = document.querySelectorAll(".purchase")[0];
+      element_to_scroll_to.scrollIntoView({ behavior: "smooth" });
+    },
+    gotoprices() {
+      var element_to_scroll_to = document.querySelectorAll(".prices")[0];
+      element_to_scroll_to.scrollIntoView({ behavior: "smooth" });
+    },
+    gotoservices() {
+      var element_to_scroll_to = document.querySelectorAll(".services")[0];
+      element_to_scroll_to.scrollIntoView({ behavior: "smooth" });
+    },
+    gotocontactus() {
+      var element_to_scroll_to = document.querySelectorAll(".contact-us")[0];
+      element_to_scroll_to.scrollIntoView({ behavior: "smooth" });
+    },
+    gotomap() {
+      var element_to_scroll_to = document.querySelectorAll(".mapzz")[0];
+      element_to_scroll_to.scrollIntoView({ behavior: "smooth" });
+    },
 
-    },
-    gotoprices(){
-    var element_to_scroll_to = document.querySelectorAll('.prices')[0];
-      element_to_scroll_to.scrollIntoView({behavior: "smooth"});
-    },
-    gotoservices(){
-      var element_to_scroll_to = document.querySelectorAll('.services')[0];
-      element_to_scroll_to.scrollIntoView({behavior: "smooth"});
-    },
-     gotocontactus(){
-      var element_to_scroll_to = document.querySelectorAll('.contact-us')[0];
-      element_to_scroll_to.scrollIntoView({behavior: "smooth"});
-    },
-    gotomap(){
-    var element_to_scroll_to = document.querySelectorAll('.mapzz')[0];
-      element_to_scroll_to.scrollIntoView({behavior:'smooth'});
-    },
-
-     check() {
-      let vm=this
+    check() {
+      let vm = this;
       firebaseAuth().onAuthStateChanged(function (user) {
         if (user) {
-          vm.showLogin=false
+          vm.showLogin = false;
         } else {
           // No user is signed in.
         }
@@ -98,13 +97,13 @@ export default {
 
     // user logout function
     userLogout() {
-      var vm = this
-      firebaseAuth().signOut()
-      .then(function () {
+      var vm = this;
+      firebaseAuth()
+        .signOut()
+        .then(function () {
           vm.showLogin = true;
-          vm.$store.commit('usernameDelete')
-          console.log("name is",vm.$store.state.username)
-          alert("Logged Out")
+          vm.$store.commit("usernameDelete");
+          alert("Logged Out!")
         })
         .catch(function (error) {
           console.log(error);
@@ -112,8 +111,8 @@ export default {
     },
 
     // Navbar navigation routes
-    Login(){
-      this.$router.push('Login')
+    Login() {
+      this.$router.push("Login");
     },
   },
 };
@@ -126,22 +125,22 @@ export default {
 }
 
 .nav-bar {
-  background:#1A1A1A;
+  background: #1a1a1a;
   position: fixed;
   width: 100%;
   list-style: none;
-  z-index:1000;
+  z-index: 1000;
   margin: auto;
 }
-.navbar-style{
+.navbar-style {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 15px;
 }
 header.sticky {
-  position:sticky;
-  top:0;
+  position: sticky;
+  top: 0;
   margin-top: 0px;
   width: 100%;
   background: rgb(224, 75, 29);
@@ -150,15 +149,15 @@ header.sticky {
 .item-style {
   color: rgb(226, 210, 210);
 }
-.item-style:hover{
-  color:red;
+.item-style:hover {
+  color: red;
   text-decoration: none;
 }
 .img-style {
   width: 80px;
   height: auto;
-  padding:0;
-  margin:0;
+  padding: 0;
+  margin: 0;
   font-weight: px;
 }
 .logo-style {
@@ -174,12 +173,12 @@ header.sticky {
     width: 100%;
     align-items: flex-end;
   }
-  .center{
-    display:flex;
+  .center {
+    display: flex;
     flex-direction: column;
   }
-  .nav-bar{
-    background:transparent;
+  .nav-bar {
+    background: transparent;
   }
 }
 * {
@@ -187,7 +186,7 @@ header.sticky {
   margin: 0;
   padding: 0;
 }
-.scroll-bar{
+.scroll-bar {
   scrollbar-color: yellow brown;
 }
 </style>

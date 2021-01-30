@@ -10,7 +10,16 @@
     <button @click="setPassword" class="btn btn-dark btn-lg btn-block">
         Set Password
       </button>
-
+  <!-- Alert Section-->
+      <div>
+        <transition name="slide" appear>
+          <div class="modals" v-if="showModal">
+            <h1 class="h11">{{ title }}</h1>
+            <p class="p11">{{ msg }}</p>
+            <button class="button22" @click="showModal = false">Okay</button>
+          </div>
+        </transition>
+      </div>
   </div>
 </template>
 
@@ -20,6 +29,8 @@
   export default {
     data(){
       return {
+        title:'',
+        msg:'',
         password : '',
         password_2 : ''
       }
@@ -27,10 +38,14 @@
     methods:{
       setPassword(){
         if(this.password != this.password_2){
-          alert('Password did not match !')
-        }else if(this.password.length != 6){
-          alert('Password too small ! Lenght of Password should be atleast 6 !')
-        }else{
+           this.title = "Password Did Not Match";
+          this.msg = "";
+          this.showModal = true;
+        }else if(this.password.length < 6){
+           this.title = "Password too small!!";
+          this.msg = "Please Enter password with atleast 6 digits";
+          this.showModal = true;
+      }else{
           let vm = this
           var user = firebaseAuth().currentUser;
           //
