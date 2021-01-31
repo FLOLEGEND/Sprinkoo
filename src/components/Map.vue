@@ -88,9 +88,7 @@ export default {
             this.showModal=true
 
         } else {
-          this.title="No user found!!"
-            this.msg="Please Sign In to Order"
-            this.showModal=true
+          alert("please Sign In to Order")
         }
       });
       }
@@ -159,9 +157,6 @@ export default {
 
       this.$store.commit("setlocationOfUser", addressOfUser);
     },
-
-
-
   },
 };
 </script>
@@ -200,14 +195,21 @@ label{
 }
 @media (max-width:600px){
   .typer{
-    width: 143%;
+    width: 122.5%;
+    justify-content: space-between;
+    align-items: center;
+    height:60px;
   }
   label{
-  font-size:9px;
+  font-size:11px;
   font-weight: bold;
 }
 #map{
   width:150%;
 }
+.Order-button{
+  left:-15rem;
 }
+}
+
 </style>

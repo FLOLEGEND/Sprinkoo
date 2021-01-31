@@ -112,139 +112,38 @@
         <div class="container-div-subscription">
           <ul>
             <li>
-              <a class="a22" @click="Sub()">
+              <a class="a22" href="https://app.payhere.co/adveria/sprinku" target="__blank">
                 <strong>Silver</strong>
                 <span class="purchase-description">5 Exterior wash </span>
                 <span class="purchase-description">Plus Polishing Free</span>
 
-                <big class="purchase-price">1499</big>
+                <big class="purchase-price">9$</big>
                 <span class="purchase-button">Buy Now</span>
               </a>
             </li>
 
             <li>
-              <a class="a22" @click="Sub()">
+              <a class="a22" href="https://app.payhere.co/adveria/gold-package" target="__blank">
                 <strong>Gold</strong>
                 <span class="purchase-description">5 Exterior wash</span>
                 <span class="purchase-description">5 Interior Wash</span>
-                <big class="purchase-price">2499</big>
+                <big class="purchase-price">15$</big>
                 <span class="purchase-button">Buy Now</span>
               </a>
             </li>
 
             <li>
-              <a class="a22" style="cursor: " @click="Sub()">
+              <a class="a22" style="cursor: " href="https://app.payhere.co/adveria/sprinku" target="__blank">
                 <strong>Platinum</strong>
-                <span class="purchase-description"
-                  >5 Exterior with Polishing</span
-                >
-                <span class="purchase-description">5 Interior wash</span>
-                <big class="purchase-price">2999</big>
+                <span class="purchase-special">6 Exterior with Polishing</span>
+                <span class="purchase-special">6 Interior </span>
+                <big class="purchase-price">20$</big>
                 <span class="purchase-button">Buy Now</span>
               </a>
             </li>
           </ul>
         </div>
       </section>
-
-      <!--About section-->
-      <!-- <section id="testimonial" class="testimonials">
-        <div class="inner">
-          <h1>Testimonials</h1>
-          <div class="border"></div>
-          <div class="row">
-            <div class="colz">
-              <div class="testimonial">
-                <img src="../assets/images/kiani.jpg" />
-                <div class="name">Daniyal kiani</div>
-                <div class="stars">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </div>
-                <p>
-                  I heard about this service and immediately wanted to check for
-                  myself. I was blown away<br />
-                  by the service they provide at lower cost than most of good
-                  service stations<br />out there. Highly recommended.
-                </p>
-              </div>
-            </div>
-            <div class="colz">
-              <div class="testimonial">
-                <img src="../assets/images/mazahir.jpg" />
-                <div class="name">Mazahir Hussain</div>
-                <div class="stars">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="far fa-star"></i>
-                </div>
-                <p>
-                  Great service for such a reasonable price. Service was perfect
-                  <Br />
-                  I ordered exterior car wash which they provide for less the
-                  average price in the market. Very good service indeed for a
-                  company relatively new.
-                </p>
-              </div>
-            </div>
-            <div class="colz">
-              <div class="testimonial">
-                <img src="../assets/images/hassan.jpg" />
-                <div class="name">Hassan Qureshi</div>
-                <div class="stars">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </div>
-                <p>
-                  Absolutely great service. My car was so rusty and I didn't have
-                  much of hope to be honest because it's a new company, but I
-                  was astonished by the quality of service they provided. Great
-                  service recommended.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> -->
-
-      <!-- Happy customers-->
-      <!-- <section class="Happy-Customers">
-        <div class="container counter-section">
-          <div class="row text-center items-align">
-            <div class="col-md-3">
-              <div class="icon-box"><i class="fa fa-briefcase"></i></div>
-              <p class="counter" data-target="10">0</p>
-              <p class="p1">PROJECTS COMPLETED</p>
-            </div>
-
-            <div class="col-md-3">
-              <div class="icon-box"><i class="fa fa-trophy"></i></div>
-              <p class="counter" data-target="9">0</p>
-              <p class="p1">HAPPY CUSTOMERS</p>
-            </div>
-
-            <div class="col-md-3">
-              <div class="icon-box"><i class="fa fa-users"></i></div>
-              <p class="counter" data-target="10">0</p>
-              <p class="p1">USERS</p>
-            </div>
-            <div class="col-md-3">
-              <div class="icon-box"><i class="fa fa-coffee"></i></div>
-              <p class="counter" data-target="95">0</p>
-              <p class="p1">PEOPLE REACHED</p>
-            </div>
-          </div>
-        </div>
-      </section> -->
-      <!-- Price section-->
       <section class="prices">
         <h1 class="services-ptag">PRICES</h1>
         <p class="text-class-all">
@@ -287,7 +186,6 @@
          <section class="mapzz">
         <Map />
       </section>
-
         <!-- Alert Section-->
       <div>
         <transition name="slide" appear>
@@ -352,59 +250,6 @@
           </div>
         </div>
       </section>
-
-      <!--Our team Section-->
-      <!-- <section class="gallery" style="background: #81c644">
-        <div class="wrapper">
-          <h1 style="padding-top: 6rem">Our Team</h1>
-          <div class="team">
-            <div class="team_member">
-              <div class="team_img">
-                <img
-                  class="img-round"
-                  src="../assets/images/amir.jpg"
-                  alt="Team_image"
-                />
-              </div>
-              <h3>Amir Afzal</h3>
-              <p class="role">Chief Administrative Officer (CAO)</p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
-                quaerat tempora, voluptatum quas facere dolorum aut cumque nihil
-                nulla harum nemo distinctio quam blanditiis dignissimos.
-              </p>
-            </div>
-            <div class="team_member">
-              <div class="team_img">
-                <img
-                  class="img-round"
-                  src="../assets/images/danish.jpg"
-                  alt="Team_image"
-                />
-              </div>
-              <h3>Dasnish Afzal</h3>
-              <p class="role">Marketing Lead</p>
-              <p>
-                A top notch business consultent with over 10 years of experiance in Marketing.
-              </p>
-            </div>
-            <div class="team_member">
-              <div class="team_img">
-                <img
-                  class="img-round"
-                  src="../assets/images/umer.jpg"
-                  alt="Team_image"
-                />
-              </div>
-              <h3>Umer afzal</h3>
-              <p class="role">Chief Technical Officer (CTO)</p>
-              <p>
-                Computer scientist with a self entrepreneurial
-              </p>
-            </div>
-          </div>
-        </div>
-      </section> -->
     </section>
     <!-- Footer section -->
     <the-footer />
@@ -500,30 +345,30 @@ export default {
     // });
   },
   methods: {
-    Sub() {
-      firebaseAuth().onAuthStateChanged((user) => {
-        let vm = this;
-        if (user) {
-          var userPhoneNumberIs = user.phoneNumber;
-          var nameOfUserIs = this.$store.state.username;
-          vm.$store.commit("setSubscription", {
-            userPhoneNumberIs,
-            nameOfUserIs,
-          });
-          subscription
-            .doc(userPhoneNumberIs)
-            .set(this.$store.state.subscription);
-          this.title = "Subscribed!";
-          this.msg =
-            "Thanks for the sub.We will provide you with coupon within few hours."+"🍬"+"🍒";
-          this.showModal = true;
-        } else {
-          this.title = "No user found!!";
-          this.msg = "Please Sign In to Subscribe";
-          this.showModal = true;
-        }
-      });
-    },
+    // Sub() {
+    //   firebaseAuth().onAuthStateChanged((user) => {
+    //     let vm = this;
+    //     if (user) {
+    //       var userPhoneNumberIs = user.phoneNumber;
+    //       var nameOfUserIs = this.$store.state.username;
+    //       vm.$store.commit("setSubscription", {
+    //         userPhoneNumberIs,
+    //         nameOfUserIs,
+    //       });
+    //       subscription
+    //         .doc(userPhoneNumberIs)
+    //         .set(this.$store.state.subscription);
+    //       this.title = "Subscribed!";
+    //       this.msg =
+    //         "Thanks for the sub.We will provide you with coupon within few hours."+"🍬"+"🍒";
+    //       this.showModal = true;
+    //     } else {
+    //       this.title = "No user found!!";
+    //       this.msg = "Please Sign In to Subscribe";
+    //       this.showModal = true;
+    //     }
+    //   });
+    // },
     userExp(input) {
       this[input].isValid = true;
     },
@@ -581,9 +426,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-//Alert Button
-
-
 // Subscription model
 .a22 {
   text-decoration: none;
@@ -725,7 +567,11 @@ export default {
   margin-bottom: 25px;
   display: inline-block;
 }
-
+.purchase-special{
+  display: block;
+  font-size: 19px;
+  line-height: 30px;
+}
 .purchase ul .purchase-description {
   display: block;
   font-size: 19px;
@@ -810,39 +656,6 @@ export default {
 }
 .price-section-inner {
   margin-right: 1rem;
-}
-
-//Happy Customers
-.Happy-Customers {
-  background: black;
-  position: relative;
-}
-.items-align {
-  padding-top: 15rem;
-  padding-bottom: 10rem;
-}
-.counter-section {
-  margin: 0 auto;
-  color: white;
-}
-.icon-box {
-  border: 1px solid #fff;
-  height: 100px;
-  width: 100px;
-  margin: 20px auto;
-  transform: rotate(45deg);
-}
-.icon-box .fa {
-  font-size: 40px;
-  margin: 25px auto;
-  color: #ffc800;
-  transform: rotate(-45deg);
-}
-.p1 {
-  font-size: 20px;
-}
-.counter {
-  font-size: 80px;
 }
 
 // Mixins
@@ -935,6 +748,7 @@ ul,
     }
     .info {
       bottom: -3.75em;
+      margin-bottom:3rem;
     }
   }
 }
@@ -978,122 +792,9 @@ ul,
   margin: auto
 }
 
-// about us section Or testimonial
-.testimonials {
-  padding: 40px 0;
-  background: #f1f1f1;
-  color: #434343;
-  text-align: center;
-}
-.inner {
-  max-width: 1200px;
-  margin: auto;
-  overflow: hidden;
-  padding: 0 20px;
-}
-.border {
-  width: 160px;
-  height: 5px;
-  background: red;
-  margin: 26px auto;
-}
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.colz {
-  flex: 33.33%;
-  max-width: 33.33%;
-  box-sizing: border-box;
-  padding: 15px;
-}
-.testimonial {
-  background: #fff;
-  padding: 30px;
-}
-.testimonial img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-}
-.name {
-  font-size: 20px;
-  text-transform: uppercase;
-  margin: 20px 0;
-}
-.stars {
-  color: #6ab04c;
-  margin-bottom: 20px;
-}
 //TEAM section
 @import url("https://fonts.googleapis.com/css?family=Allura|Josefin+Sans");
 
-.gallery {
-  height: 700px;
-}
-.wrapper {
-  height: 600px;
-}
-
-.wrapper h1 {
-  font-family: "Allura", cursive;
-  font-size: 52px;
-  margin-bottom: 60px;
-  text-align: center;
-}
-.img-round {
-  border-radius: 50%;
-}
-.team {
-  display: flex;
-  padding-top: 1rem;
-  justify-content: center;
-  width: auto;
-  text-align: center;
-  flex-wrap: wrap;
-}
-
-.team .team_member {
-  background: #fff;
-  margin: 5px;
-  margin-bottom: 50px;
-  width: 300px;
-  padding: 20px;
-  line-height: 20px;
-  color: #8e8b8b;
-  position: relative;
-}
-
-.team .team_member h3 {
-  color: #81c644;
-  font-size: 26px;
-  margin-top: 50px;
-}
-
-.team .team_member p.role {
-  color: #ccc;
-  margin: 12px 0;
-  font-size: 12px;
-  text-transform: uppercase;
-}
-
-.team .team_member .team_img {
-  position: absolute;
-  top: -50px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background: #fff;
-}
-
-.team .team_member .team_img img {
-  width: 100px;
-  height: 100px;
-  padding: 5px;
-}
 @media (max-width: 1300px) {
   .gallery {
     height: 800px;
@@ -1208,5 +909,11 @@ ul,
 .text-class-all{
   width:96%;
 }
+.purchase-special{
+  display: block;
+  font-size: 19px;
+  line-height: 19.9px;
 }
+}
+
 </style>

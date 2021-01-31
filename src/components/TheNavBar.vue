@@ -10,7 +10,7 @@
           />
         </b-navbar-brand>
       </section>
-      <section class="center ml-5">
+      <section class="center ml-5" :class="{'nav-active':show}">
         <b-nav-item class="ml-auto mr-lg-3 mr-md-2">
           <a @click="gotoservices()" class="item-style">SERVICES</a>
         </b-nav-item>
@@ -37,18 +37,19 @@
           <a @click="userLogout()" class="item-style">LOGOUT</a>
         </b-nav-item>
       </section>
+      <div class="burger" @click=" showNav()">
+        <div class="line1"></div>
+         <div class="line2"></div>
+          <div class="line3"></div>
+      </div>
     </b-navbar>
   </header>
 </template>
 
 <script>
-// To change the navbar color on scroll
-// window.addEventListener("scroll", function () {
-//   var header = document.querySelector("header");
-//   header.classList.toggle("sticky", window.scrollY > 0);
-// });
 
 import { firebaseAuth } from "../firebase";
+import TheFooterVue from './TheFooter.vue';
 export default {
   created() {
     return this.check();
@@ -56,9 +57,17 @@ export default {
   data() {
     return {
       showLogin: true,
+      show:false
     };
   },
   methods: {
+    showNav(){
+      if(this.show){
+        this.show=false
+      }else{
+        this.show=TheFooterVue
+      }
+    },
     gotoabout() {
       var element_to_scroll_to = document.querySelectorAll(".gallery")[0];
       element_to_scroll_to.scrollIntoView({ behavior: "smooth" });
@@ -123,7 +132,15 @@ export default {
 .starting {
   display: flex;
 }
-
+.burger{
+  display:none;
+}
+.burger div{
+  width:25px;
+  height:3px;
+  background-color: white;
+  margin:5px;
+}
 .nav-bar {
   background: #1a1a1a;
   position: fixed;
@@ -185,19 +202,37 @@ header.sticky {
   }
 }
 @media (max-width: 600px) {
-  .navbar-style,
+  .navbar-style {
+    height: 9vh;
+    width: 100%;
+  }
+  .burger{
+    display:block;
+    cursor: pointer;
+  }
   .logo-style {
     display: flex;
-    flex-direction: column;
     width: 100%;
-    align-items: flex-end;
+    align-items: flex-start;
   }
   .center {
     display: flex;
     flex-direction: column;
+    height: 0vh;
+    transform: translateX(200%);
+    transition: transform 0.5s ease-in;
   }
   .nav-bar {
-    background: transparent;
+    background: rgb(37, 24, 24);
+    top:0px;
+    align-items: center;
+    height:3rem;
   }
+}
+.nav-active{
+  background-color: black;
+  margin-top: 32rem;
+  height:30rem;
+  transform: translateX(103%);
 }
 </style>
