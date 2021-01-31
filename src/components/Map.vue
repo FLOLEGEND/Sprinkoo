@@ -198,4 +198,16 @@ label{
   justify-content: center;
   align-items: center;
 }
+@media (max-width:600px){
+  .typer{
+    width: 143%;
+  }
+  label{
+  font-size:9px;
+  font-weight: bold;
+}
+#map{
+  width:150%;
+}
+}
 </style>

@@ -8,6 +8,7 @@
       indicators
       img-width="1024"
       img-height="480"
+      class="cara-style"
     >
       <b-carousel-slide
         caption="GET YOUR CAR WASHED TODAY"
@@ -22,17 +23,17 @@
         img-src="../assets/images/sports.jpg"
       ></b-carousel-slide>
     </b-carousel>
-    <section>
+    <section class="controler-section">
       <!--Services Section-->
       <section id="services" class="services">
         <h1 class="services-ptag">SERVICES</h1>
-        <p style="padding-bottom: 2rem; font-size: 20px">
+        <p class="text-class-all">
           We provide all sort of car washing services including interior and
           exterior<br />
           wash with car checkup and servicing at door step.
         </p>
         <div class="section1-div1">
-          <ul style="width: 80%; margin: auto" class="holder">
+          <ul class="holder">
             <li class="li1">
               <img class="img1" src="../assets/images/wash1.jpg" />
               <div class="info">
@@ -98,12 +99,12 @@
           </ul>
         </div>
       </section>
-      <!-- Subscription model -->
+      <!-- Subscription model hello -->
       <section class="purchase" id="buy-now">
         <h1 class="services-ptag" style="font-size: 50px">
-          <b>SUBSCRIPTION PRICING</b>
+          <b>Our packages</b>
         </h1>
-        <p style="padding-bottom: 2rem; font-size: 20px">
+        <p class="text-class-all">
           Our subscribers will be provided with coupon which they can use to
           <br />
           get bonus services according to their subscription.
@@ -185,9 +186,9 @@
                 <p>
                   Great service for such a reasonable price. Service was perfect
                   <Br />
-                  I orderd exterior car wash which they provide for less the
+                  I ordered exterior car wash which they provide for less the
                   average price in the market. Very good service indeed for a
-                  company relaively new.
+                  company relatively new.
                 </p>
               </div>
             </div>
@@ -203,7 +204,7 @@
                   <i class="fas fa-star"></i>
                 </div>
                 <p>
-                  Absolutely great service. My car was so rusty and I did't have
+                  Absolutely great service. My car was so rusty and I didn't have
                   much of hope to be honest because it's a new company, but I
                   was astonished by the quality of service they provided. Great
                   service recommended.
@@ -246,7 +247,7 @@
       <!-- Price section-->
       <section class="prices">
         <h1 class="services-ptag">PRICES</h1>
-        <p style="padding-bottom: 2rem; font-size: 20px">
+        <p class="text-class-all">
           Our periority are customers and trust. Keeping that in mind we provide
           the lowest<br />
           prices possible to our customers.
@@ -283,7 +284,7 @@
         </div>
       </section>
       <!-- map section-->
-        <section class="mapzz">
+         <section class="mapzz">
         <Map />
       </section>
 
@@ -398,7 +399,7 @@
               <h3>Umer afzal</h3>
               <p class="role">Chief Technical Officer (CTO)</p>
               <p>
-                Computer scientist with a self entreprenureai
+                Computer scientist with a self entrepreneurial
               </p>
             </div>
           </div>
@@ -442,38 +443,38 @@ export default {
     };
   },
   mounted() {
-    const sectionOne = document.querySelector(".counter");
-    const options = {
-      root: null,
-      threshold: 0,
-      rootMargin: "-200px",
-    };
+    // const sectionOne = document.querySelector(".counter");
+    // const options = {
+    //   root: null,
+    //   threshold: 0,
+    //   rootMargin: "-200px",
+    // };
     // eslint-disable-next-line no-unused-vars
-    const observer = new IntersectionObserver(function (entries, observer) {
-      entries.some((entry) => {
-        //
-        if (entry.isIntersecting === true) {
-          const counters = document.querySelectorAll(".counter");
-          const speed = 200;
-          counters.forEach((counter) => {
-            const updateCount = () => {
-              const target = +counter.getAttribute("data-target");
-              const count = +counter.innerText;
+    // const observer = new IntersectionObserver(function (entries, observer) {
+    //   entries.some((entry) => {
+    //     //
+    //     if (entry.isIntersecting === true) {
+    //       const counters = document.querySelectorAll(".counter");
+    //       const speed = 200;
+    //       counters.forEach((counter) => {
+    //         const updateCount = () => {
+    //           const target = +counter.getAttribute("data-target");
+    //           const count = +counter.innerText;
 
-              const inc = target / speed;
-              if (count < target) {
-                counter.innerText = Math.ceil(count + inc);
-                setTimeout(updateCount, 1);
-              } else {
-                return;
-              }
-            };
-            updateCount();
-          });
-        }
-      });
-    }, options);
-    observer.observe(sectionOne);
+    //           const inc = target / speed;
+    //           if (count < target) {
+    //             counter.innerText = Math.ceil(count + inc);
+    //             setTimeout(updateCount, 1);
+    //           } else {
+    //             return;
+    //           }
+    //         };
+    //         updateCount();
+    //       });
+    //     }
+    //   });
+    // }, options);
+    // observer.observe(sectionOne);
 
     // window.addEventListener("scroll", function () {
     //   var header = document.querySelector("header");
@@ -512,7 +513,7 @@ export default {
           subscription
             .doc(userPhoneNumberIs)
             .set(this.$store.state.subscription);
-          this.title = "Susbcribed!";
+          this.title = "Subscribed!";
           this.msg =
             "Thanks for the sub.We will provide you with coupon within few hours."+"🍬"+"🍒";
           this.showModal = true;
@@ -882,6 +883,10 @@ ul,
   font-size: 50px;
   font-weight: bold;
 }
+.text-class-all{
+  padding-bottom: 2rem;
+ font-size: 20px;
+}
 .services {
   display: flex;
   flex-direction: column;
@@ -969,6 +974,8 @@ ul,
 .holder {
   display: flex;
   flex-wrap: wrap;
+  width: 80%;
+  margin: auto
 }
 
 // about us section Or testimonial
@@ -1162,5 +1169,44 @@ ul,
     flex: 100%;
     max-width: 100%;
   }
+  .services-ptag {
+  padding-top: 10rem;
+  padding-bottom: 2rem;
+  font-size: 50px;
+  width:100%;
+  font-weight: bold;
+}
+.contact-us {
+  background: rgb(94, 89, 185);
+  background: linear-gradient(
+    90deg,
+    rgba(94, 89, 185, 1) 9%,
+    rgba(122, 145, 201, 1) 26%,
+    rgba(69, 83, 182, 1) 46%,
+    rgba(58, 168, 172, 1) 63%,
+    rgba(128, 72, 195, 1) 87%
+  );
+  height: 170vh;
+  width: 150%;
+}
+
+.services {
+    height: 2400px;
+    width:150%;
+  }
+  .prices {
+  background: rgb(233, 223, 223);
+  height: 800px;
+  width:150%;
+}
+.cara-style{
+  width:150%;
+}
+.purchase{
+  width:150%;
+}
+.text-class-all{
+  width:96%;
+}
 }
 </style>

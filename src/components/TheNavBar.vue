@@ -166,7 +166,10 @@ header.sticky {
   text-decoration: none;
 }
 @media (max-width: 700px) {
-  .navbar-style,
+  .navbar-style{
+    width:80%;
+    position:relative;
+  }
   .logo-style {
     display: flex;
     flex-direction: column;
@@ -181,12 +184,20 @@ header.sticky {
     background: transparent;
   }
 }
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-.scroll-bar {
-  scrollbar-color: yellow brown;
+@media (max-width: 600px) {
+  .navbar-style,
+  .logo-style {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-end;
+  }
+  .center {
+    display: flex;
+    flex-direction: column;
+  }
+  .nav-bar {
+    background: transparent;
+  }
 }
 </style>

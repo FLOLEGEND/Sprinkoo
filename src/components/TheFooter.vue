@@ -68,7 +68,7 @@ export default {
 .main-container {
   height:400px;
   background: rgb(219, 210, 210);
-  width: 100%;
+  width: 150%;
 }
 .Preserved {
   display: flex;
